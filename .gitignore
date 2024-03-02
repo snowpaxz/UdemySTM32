@@ -50,3 +50,17 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Eclipse junk
+.project
+.metadata
+local.properties
+.loadpath
+.settings
+*.swp
+*.bak
+*.tmp
+tmp/**
+tmp/**/*
+bin/**
+

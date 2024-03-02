@@ -59,8 +59,8 @@ all: main-build
 main-build: 4_gpio_input.elf secondary-outputs
 
 # Tool invocations
-4_gpio_input.elf 4_gpio_input.map: $(OBJS) $(USER_OBJS) /home/lars/Documents/STM32/4_gpio_input/STM32L152RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "4_gpio_input.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/lars/Documents/STM32/4_gpio_input/STM32L152RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="4_gpio_input.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+4_gpio_input.elf 4_gpio_input.map: $(OBJS) $(USER_OBJS) /home/lars/Documents/UdemySTM32/STM32/4_gpio_input/STM32L152RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "4_gpio_input.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/lars/Documents/UdemySTM32/STM32/4_gpio_input/STM32L152RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="4_gpio_input.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

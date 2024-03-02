@@ -423,3 +423,135 @@ java.util.ConcurrentModificationException
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-02-29 22:19:24.662
 !MESSAGE Indexed '4_gpio_input' (3 sources, 62 headers) in 0.285 sec: 2,781 declarations; 4,628 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.027%)
+!SESSION 2024-03-01 16:14:48.787 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-01 16:14:55.098
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-01 16:14:55.099
+!MESSAGE Log4j2 initialized with config file /home/lars/Documents/UdemySTM32/STM32/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-01 16:14:58.575
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-01 16:19:54.285
+!MESSAGE Indexed '5_uart_tx' (4 sources, 60 headers) in 1 sec: 2,652 declarations; 3,789 references; 3 unresolved inclusions; 30 syntax errors; 569 unresolved names (8.1%)
+!SESSION 2024-03-01 20:49:35.719 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-01 20:49:45.512
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-01 20:49:45.513
+!MESSAGE Log4j2 initialized with config file /home/lars/Documents/UdemySTM32/STM32/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-01 20:49:49.082
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:13:57.992
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 20 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:13:57.992
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:13:57.992
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 20 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:13:57.993
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:21:42.009
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 21 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:21:42.010
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:21:42.010
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 21 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:21:42.010
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:36:14.569
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 22 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:36:14.569
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:36:14.570
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 22 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:36:14.570
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:38:33.393
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 23 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:38:33.393
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:38:33.393
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 23 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:38:33.393
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:40:10.391
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 24 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:40:10.391
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:40:10.391
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 24 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:40:10.391
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:40:40.896
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 25 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:40:40.896
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:40:40.896
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 25 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:40:40.896
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:42:07.587
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 26 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:42:07.587
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:42:07.587
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 26 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-03-01 21:42:07.587
+!MESSAGE Existing sessions are:
+!SESSION 2024-03-01 21:42:36.910 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-01 21:42:42.009
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-01 21:42:42.010
+!MESSAGE Log4j2 initialized with config file /home/lars/Documents/UdemySTM32/STM32/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-01 21:42:46.073
+!MESSAGE Started RMI Server, listening on port 41337

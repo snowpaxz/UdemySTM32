@@ -59,8 +59,8 @@ all: main-build
 main-build: 2_gpio_output.elf secondary-outputs
 
 # Tool invocations
-2_gpio_output.elf 2_gpio_output.map: $(OBJS) $(USER_OBJS) /home/lars/Documents/STM32/2_gpio_output/STM32L152RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "2_gpio_output.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/lars/Documents/STM32/2_gpio_output/STM32L152RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="2_gpio_output.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+2_gpio_output.elf 2_gpio_output.map: $(OBJS) $(USER_OBJS) /home/lars/Documents/UdemySTM32/STM32/2_gpio_output/STM32L152RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "2_gpio_output.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/lars/Documents/UdemySTM32/STM32/2_gpio_output/STM32L152RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="2_gpio_output.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

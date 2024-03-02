@@ -1,0 +1,7 @@
+../Src/main.c:28:5:main	2
+../Src/main.c:48:6:clock_step_up_to_4M	1
+../Src/main.c:55:6:clock_step_up_to_16M	3
+../Src/main.c:67:6:uart2_tx_init	1
+../Src/main.c:97:6:uart2_write	2
+../Src/main.c:106:13:uart_set_baudrate	1
+../Src/main.c:111:17:compute_uart_bd	1

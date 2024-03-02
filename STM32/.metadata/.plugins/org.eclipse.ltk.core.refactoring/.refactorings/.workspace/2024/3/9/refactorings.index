@@ -9,3 +9,5 @@
 1709273981610	Delete resource '4_gpio_input/Debug/3_gpio_bsrr.elf'
 1709273988280	Delete resource '4_gpio_input/2_gpio_output Debug.launch'
 1709273993198	Delete resource '4_gpio_input/3_gpio_bsrr Debug.launch'
+1709342408029	Delete resource '5_uart_tx/Debug/4_gpio_input.elf'
+1709344251903	Delete resource '5_uart_tx/4_gpio_input Debug.launch'

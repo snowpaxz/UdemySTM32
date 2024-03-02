@@ -59,8 +59,8 @@ all: main-build
 main-build: 1_led_toggle_addr_struct.elf secondary-outputs
 
 # Tool invocations
-1_led_toggle_addr_struct.elf 1_led_toggle_addr_struct.map: $(OBJS) $(USER_OBJS) /home/lars/Documents/STM32/1_led_toggle_addr_struct/STM32L152RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "1_led_toggle_addr_struct.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/lars/Documents/STM32/1_led_toggle_addr_struct/STM32L152RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="1_led_toggle_addr_struct.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+1_led_toggle_addr_struct.elf 1_led_toggle_addr_struct.map: $(OBJS) $(USER_OBJS) /home/lars/Documents/UdemySTM32/STM32/1_led_toggle_addr_struct/STM32L152RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "1_led_toggle_addr_struct.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/lars/Documents/UdemySTM32/STM32/1_led_toggle_addr_struct/STM32L152RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="1_led_toggle_addr_struct.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
