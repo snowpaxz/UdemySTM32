@@ -54,6 +54,7 @@ dkms.conf
 # Eclipse junk
 .project
 .metadata
+.metadata/**
 local.properties
 .loadpath
 .settings
