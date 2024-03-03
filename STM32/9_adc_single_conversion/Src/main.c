@@ -23,7 +23,6 @@ int main(void)
 		start_conversion();
 
 		printf("Sensor value %d\r\n", (int)sensor_value);
-
 	}
 
 }
