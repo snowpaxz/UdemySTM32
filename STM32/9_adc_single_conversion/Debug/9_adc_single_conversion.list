@@ -224,6 +224,7 @@ int main(void)
  800021c:	6013      	str	r3, [r2, #0]
 		start_conversion();
  800021e:	f7ff ffd1 	bl	80001c4 <start_conversion>
+
 		printf("Sensor value %d\r\n", (int)sensor_value);
  8000222:	4b03      	ldr	r3, [pc, #12]	; (8000230 <main+0x2c>)
  8000224:	681b      	ldr	r3, [r3, #0]

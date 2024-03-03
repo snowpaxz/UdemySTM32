@@ -21,9 +21,8 @@ int main(void)
 	{
 		sensor_value = adc_read();
 		start_conversion();
+
 		printf("Sensor value %d\r\n", (int)sensor_value);
-
-
 
 	}
 
