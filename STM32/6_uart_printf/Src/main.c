@@ -1,5 +1,6 @@
 #include "stm32l1xx.h"
 #include <stdint.h>
+#include <stdio.h>
 
 #define GPIOAEN		(1U<<0)
 #define UART2EN		(1U<<17)
@@ -24,6 +25,12 @@ void clock_step_up_to_4M();
 void uart2_tx_init();
 void uart2_write(int ch);
 
+
+int __io_putchar(int ch)
+{
+	uart2_write(ch);
+	return(ch);
+}
 int main(void)
 {
 	clock_step_up_to_16M();
@@ -32,7 +39,7 @@ int main(void)
 	uart2_tx_init();
 	while(1)
 	{
-		uart2_write('Y');
+		printf("Hello from STM32L152......\r\n");
 
 		for(int i = 0; i < 100000; i++){}
 	}
