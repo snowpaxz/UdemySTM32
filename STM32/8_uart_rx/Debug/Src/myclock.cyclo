@@ -1,0 +1,2 @@
+../Src/myclock.c:13:6:clock_step_up_to_4M	1
+../Src/myclock.c:20:6:clock_step_up_to_16M	3
