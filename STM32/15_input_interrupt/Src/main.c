@@ -5,29 +5,48 @@
 #include "myclock.h"
 #include "systick.h"
 #include "tim.h"
+#include "exti.h"
 
-int timestamp = 0;
+#define GPIOAEN (1U<<0)
+#define PIN5	(1U<<5)
+#define LEDPIN	PIN5
 
-/* Set up: Connect a jumper from PA5 to PA6 */
+
+static void exti_callback(void);
+
 int main(void)
 {
-	// STM32L152RE restarts to approximately 2MHz
-	// Need to step this up to 16MHz
 	clock_step_up_to_16M();
 
-	tim2_PA5_output_compare();
-	tim3_pa6_input_capture();
+	RCC->AHBENR |= GPIOAEN;
+	GPIOA->MODER |= (1U<<10);
+	GPIOA->MODER &= ~(1U<<11);
+
+	pc13_exti_init();
+	uart2_tx_init();
 
 	while(1)
 	{
-		/* Wait until capture interrupt */
-		while(!(TIM3->SR & SR_CC1IF)){}
 
-		/* Read value */
-		timestamp = TIM3->CCR1;
 	}
 
 }
 
+static void exti_callback(void)
+{
+	printf("Btn pressed \n\r");
 
+	GPIOA->ODR ^= LEDPIN;
+
+}
+
+void EXTI15_10_IRQHandler(){
+	if(EXTI->PR & LINE13){
+		/* Clear PR flag */
+		EXTI->PR |= LINE13;
+
+		// Do desired function now that interrupt occurred
+		exti_callback();
+	}
+}
 
