@@ -54,6 +54,7 @@ void USART2_IRQHandler()
 {
 	if(USART2->SR & SR_RXNE)
 	{
+		// Reading from DR automatically clears RXNE flag
 		key = USART2->DR;
 
 		uart_callback2();
