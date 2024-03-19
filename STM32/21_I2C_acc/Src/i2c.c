@@ -26,6 +26,7 @@
 #define CR1_STOP (1U<<9)
 
 #define SR1_RxNE (1U<<6)
+#define SR1_BTF (1U<<2)
 
 /* Use PB8 as i2c SCL, PB9 as SDA */
 void I2C1_init()
@@ -96,7 +97,7 @@ void I2C1_byteRead(char saddr, char maddr, char* data)
 {
 	volatile int temp;
 	/* Check if bus is busy */
-	while(I2C1->SR2 & (1U<<1)){}
+	while(I2C1->SR2 & SR2_BUSY){}
 
 	/* Set Start Bit */
 	I2C1->CR1 |= CR1_START;
@@ -114,6 +115,9 @@ void I2C1_byteRead(char saddr, char maddr, char* data)
 
 	/* Clear addr flag */
 	temp = I2C1->SR2;
+
+	/* Wait until TX is empty */
+	while(!(I2C1->SR1 & SR1_TXE)){}
 
 	/* Send memory address */
 	I2C1->DR = maddr;
@@ -147,4 +151,125 @@ void I2C1_byteRead(char saddr, char maddr, char* data)
 
 	/* Read data from DR */
 	*data++ = I2C1->DR;
+}
+
+void I2C1_burstRead(char saddr, char maddr, int n, char* data)
+{
+	volatile int temp;
+
+	/* Wait until bus not busy */
+	while(I2C1->SR2 & SR2_BUSY){}
+
+	/* Set Start Bit */
+	I2C1->CR1 |= CR1_START;
+
+	/* Wait until start flag is set */
+	while(!(I2C1->SR1 & SR1_START)){}
+
+	/* Write Periph address + Write */
+	I2C1->DR = saddr << 1;
+
+	/* Wait until address flag is set */
+	while(!(I2C1->SR1 & SR1_ADDR)){}
+
+	/* Clear addr flag */
+	temp = I2C1->SR2;
+
+	/* Wait until TX is empty */
+	while(!(I2C1->SR1 & SR1_TXE)){}
+
+	/* Send memory address */
+	I2C1->DR = maddr;
+
+	/* Wait until TX is empty */
+	while(!(I2C1->SR1 & SR1_TXE)){}
+
+	/* Create restart condition */
+	I2C1->CR1 |= CR1_START;
+
+	/* Wait until start flag is set */
+	while(!(I2C1->SR1 & SR1_START)){}
+
+	/* Transmit periph address + read */
+	I2C1->DR = saddr << 1 | 1;
+
+	/* Wait until address flag is set */
+	while(!(I2C1->SR1 & SR1_ADDR)){}
+
+	/* Clear addr flag */
+	temp = I2C1->SR2;
+
+	/* Enable ACK */
+	I2C1->CR1 |= CR1_ACK;
+
+	while(n > 0U)
+	{
+		// Check for final byte (since n is decrementing)
+		if(n == 1)
+		{
+			/* Disable ACK */
+			I2C1->CR1 &= ~CR1_ACK;
+
+			/* Generate stop after data received */
+			I2C1->CR1 |= CR1_STOP;
+
+			/* Wait until RXNE flag set */
+			while(!(I2C1->SR1 & SR1_RxNE)){}
+
+			/* Read data from DR */
+			*data++ = I2C1->DR;
+
+			break;
+		} else {
+			/* Wait until RXNE flag set */
+			while(!(I2C1->SR1 & SR1_RxNE)){}
+
+			/* Read data from DR */
+			*data++ = I2C1->DR;
+
+			n--;
+		}
+	}
+}
+
+void I2C1_burstWrite(char saddr, char maddr, int n, char* data)
+{
+	volatile int temp;
+	/* Check if bus is busy */
+	while(I2C1->SR2 & SR2_BUSY){}
+
+	/* Set Start Bit */
+	I2C1->CR1 |= CR1_START;
+
+	/* Wait until start flag is set */
+	while(!(I2C1->SR1 & SR1_START)){}
+
+	/* Transmit periph address with write */
+	I2C1->DR = saddr << 1;
+
+	/* Wait for addr bit to be set */
+	while(!(I2C1->SR1 & SR1_ADDR)){}
+
+	/* Clear addr flag */
+	temp = I2C1->SR2;
+
+	/* Wait until TX is empty */
+	while(!(I2C1->SR1 & SR1_TXE)){}
+
+	/* Send memory address with write */
+	I2C1->DR = maddr;
+
+	for(int i = 0; i < n; i++)
+	{
+		/* Wait until data register is empty */
+		while(!(I2C1->SR1 & SR1_TXE)){}
+
+		I2C1->DR = *data++;
+
+	}
+	/* Wait until tx is finished */
+	while(!(I2C1->SR1 & SR1_BTF)){}
+
+	/* Generate stop */
+	I2C1->CR1 |= CR1_STOP;
 }
