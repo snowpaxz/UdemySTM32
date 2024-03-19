@@ -61,16 +61,14 @@ void dma1_stream7_init(uint32_t src, uint32_t dst, uint32_t len)
 	/* Set length */
 	DMA1_Channel7->CNDTR = len;
 
-	/* Select stream & channel (7 & UART TX) */
-
 	/* Enable memory increment */
 	DMA1_Channel7->CCR |= (1U<<7);
 
 	/* Configure transfer direction (memory to peripheral) */
 	DMA1_Channel7->CCR |= (1U<<4);
 
-	/* Disable FIFO / Enable direct mode */
-	//DMA1_Channel7->CCR &= ~(1U<<5); Already cleared
+	/* Enable circular mode */
+	DMA1_Channel7->CCR |= (1U<<5); //Already cleared
 
 	/* Enable DMA interrupts */
 	DMA1_Channel7->CCR |= (DMA_TDONE_IEN); //|| DMA_THALF_IEN || DMA_TERR_IEN);
