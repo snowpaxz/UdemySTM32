@@ -12,6 +12,10 @@
 #define GPIOAEN	(1U<<0)
 #define GPIOBEN	(1U<<1)
 
+#define SR_TXE (1U<<1)
+#define SR_BUSY (1U<<7)
+
+
 
 // D13 - PA5 - SPI CLK
 // D12 - PA6 - SPI MISO
@@ -95,4 +99,29 @@ void spi1_config(void)
 	/* SPI Enable */
 	SPI1->CR1 |= (1U<<6);
 
+}
+
+void spi1_transmit(uint_8 *data, uint32_t length)
+{
+	uint32_t i = 0;
+	uint8_t temp;
+
+	while(i<size)
+	{
+		/* Wait until TXE is empty */
+		while(!(SPI1->SR & SR_TXE)){}
+
+		/* Write data to SPI DR */
+		SPI1->DR = data[i++];
+	}
+
+	/* Wait for TXE to be set */
+	while(!(SPI1->SR & SR_TXE)){}
+
+	/* Wait for busy flag to be reset */
+	while(SPI1->SR & SR_BUSY){}
+
+	/* Clear overrun flag */
+	temp = SPI1->DR;
+	temp = SPI1->SR;
 }
