@@ -34,7 +34,7 @@ void vma208_init(void)
 	/* Enable I2C */
 	I2C1_init();
 
-	/* Read DEVID, should return 0x1C */
+	/* Read DEVID, should return 0x2A */
 	vma208_read_address(DEVID_R);
 
 	/* Set data range to 4G+/- */
